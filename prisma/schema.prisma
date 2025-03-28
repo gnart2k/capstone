@@ -1,0 +1,295 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  password      String?
+  dob           DateTime?
+  phone         String?   @map("phone_number")
+  gender        String?
+  credibility   String?   @default("0")
+  roleId        String
+  role          Role      @relation(fields: [roleId], references: [id])
+  status        Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+
+  accounts          Account[]
+  addresses         AddressOnUser[]
+  maps              MapAddressOnUser[]
+  feedbacks         Feedback[]
+  capabilities      Capabilities[]
+  Schedule          Schedule[]
+  requests          RequestOnStaff[]
+  Request           Request[]
+  Notifications     Notifications[]
+  ApplicationReport ApplicationReport[]
+
+  @@map("users")
+}
+
+model Role {
+  id       String @id @default(cuid())
+  roleName String @unique
+  users    User[]
+}
+
+model Service {
+  id               String         @id @default(cuid())
+  serviceName      String         @unique
+  shortDescription String         @db.VarChar(500)
+  longDescription  String         @db.Text
+  promotionImg     String?
+  otherImg         String?
+  createdAt        DateTime       @default(now())
+  serviceItems     ServiceItem[]
+  ServiceCombo     ServiceCombo[]
+  request          Request[]
+  capabilityStaff  Capabilities[]
+}
+
+model ServiceItem {
+  id           String   @id @default(cuid())
+  title        String
+  description  String   @db.Text
+  promotionImg String
+  serviceId    String
+  createdAt    DateTime @default(now())
+  service      Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+}
+
+model ServiceCombo {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  price       Float
+  serviceId   String
+  createdAt   DateTime @default(now())
+  service     Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  duration    Float
+  staffNumber Int
+
+  request Request[]
+}
+
+model Request {
+  id             Int          @id @default(autoincrement())
+  serviceId      String       @map("service_id")
+  service        Service      @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  address        Address      @relation(fields: [addressId], references: [id], onDelete: Cascade)
+  serviceComboId String       @map("service_combo_id")
+  serviceCombo   ServiceCombo @relation(fields: [serviceComboId], references: [id], onDelete: Cascade)
+  date           DateTime
+  paymentMethod  String?
+  time           String
+  price          Float
+  deposit        Float?
+  staffNum       Int?
+  note           String?
+  map            MapAddress?  @relation(fields: [mapAddressId], references: [id], onDelete: Cascade)
+  status         String       @default("pending")
+  mapAddressId   String?
+  addressId      String
+  type           String
+  paymentLink    String?
+  createdAt      DateTime     @default(now())
+  phone          String       @default("")
+  transactionId  String?
+
+  userId    String           @map("user_id")
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  feedbacks Feedback?
+  schedule  Schedule[]
+  staffs    RequestOnStaff[]
+}
+
+// specify which staff work on which request
+model RequestOnStaff {
+  id        String  @id @default(cuid())
+  requestId Int
+  staffId   String
+  Request   Request @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  user      User    @relation(fields: [staffId], references: [id], onDelete: Cascade)
+}
+
+//schedule of staff
+model Schedule {
+  id        String   @id @default(uuid())
+  userId    String
+  taskName  String
+  startTime String
+  endTime   String
+  date      DateTime
+  requestId Int
+  request   Request  @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  staff     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+//staff that have capabilities to work on specific service
+model Capabilities {
+  id        String  @id @default(uuid())
+  userId    String
+  serviceId String
+  User      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, serviceId])
+}
+
+// feedback after done request
+model Feedback {
+  id        String   @id @default(uuid())
+  text      String   @db.Text
+  rate      Int
+  createdAt DateTime @default(now())
+  userId    String   @map("user_id")
+  requestId Int      @unique @map("request_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  request   Request  @relation(fields: [requestId], references: [id], onDelete: Cascade)
+}
+
+model Province {
+  id           Int        @id @default(autoincrement())
+  provinceName String     @unique
+  districts    District[]
+  address      Address[]
+}
+
+model District {
+  id           Int       @id @default(autoincrement())
+  districtName String
+  provinceId   Int
+  provinces    Province  @relation(fields: [provinceId], references: [id], onDelete: Cascade)
+  Ward         Ward[]
+  Address      Address[]
+}
+
+model Ward {
+  id         Int       @id @default(autoincrement())
+  wardCode   String    @unique
+  wardName   String
+  districtId Int
+  districts  District  @relation(fields: [districtId], references: [id], onDelete: Cascade)
+  Address    Address[]
+}
+
+model Address {
+  id              String          @id @default(cuid())
+  provinceId      Int
+  districtId      Int
+  wardId          Int
+  specificAddress String
+  isDefault       Boolean         @default(false)
+  province        Province        @relation(fields: [provinceId], references: [id], onDelete: Cascade)
+  district        District        @relation(fields: [districtId], references: [id], onDelete: Cascade)
+  ward            Ward            @relation(fields: [wardId], references: [id], onDelete: Cascade)
+  users           AddressOnUser[]
+  Request         Request[]
+}
+
+model AddressOnUser {
+  addressId String
+  userId    String
+  address   Address @relation(fields: [addressId], references: [id], onDelete: Cascade)
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([addressId, userId])
+}
+
+model MapAddress {
+  id          String             @id @default(cuid())
+  addressText String             @unique
+  mapLink     String             @unique
+  lat         Float?
+  lng         Float?
+  users       MapAddressOnUser[]
+  Request     Request[]
+}
+
+model MapAddressOnUser {
+  mapId      String
+  userId     String
+  mapAddress MapAddress @relation(fields: [mapId], references: [id], onDelete: Cascade)
+  user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([mapId, userId])
+}
+
+model VerificationToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model PasswordResetToken {
+  id      String   @id @default(cuid())
+  email   String
+  token   String   @unique
+  expires DateTime
+
+  @@unique([email, token])
+}
+
+model Notifications {
+  id         Int      @id @default(autoincrement())
+  userId     String   @map("user_id")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type       String
+  message    String
+  is_read    Boolean
+  created_at DateTime @default(now())
+}
+
+model ApplicationReport {
+  id            String         @id @default(cuid())
+  userId        String         @map("user_id")
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reportType    String
+  reportContent String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime?
+  status        Boolean?
+  AttachedFile  AttachedFile[]
+}
+
+model AttachedFile {
+  id                  String             @id @default(cuid())
+  fileName            String
+  fileSize            Int
+  contentType         String
+  downloadUrl         String
+  createdAt           DateTime           @default(now())
+  ApplicationReport   ApplicationReport? @relation(fields: [applicationReportId], references: [id], onDelete: Cascade)
+  applicationReportId String?
+}
