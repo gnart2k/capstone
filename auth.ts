@@ -72,8 +72,8 @@ export const { handlers: { GET, POST }, signIn, signOut, auth } = NextAuth({
       }
 
       //Prevent sign in without email verification
-      if (!existingUser?.emailVerified) return false;
-      if (!existingUser?.status) return false;
+      // if (!existingUser?.emailVerified) return false;
+      // if (!existingUser?.status) return false;
       //TODO: 2 factor Check 
       return true;
     },

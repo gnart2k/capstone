@@ -29,16 +29,16 @@ export const signInAction = async (values: z.infer<typeof LoginSchema>) => {
     return { error: "Tài khoản của bạn đã bị vô hiệu hóa" }
   }
 
-  if (!existingUser.emailVerified) {
-    const verificationToken = await generateVerificationToken(
-      existingUser.email,
-    );
-    await sendVerificationEmail(
-      verificationToken.email,
-      verificationToken.token,
-    );
-    return { success: "Email xác nhận đã được gửi đi!" }
-  };
+  // if (!existingUser.emailVerified) {
+  //   const verificationToken = await generateVerificationToken(
+  //     existingUser.email,
+  //   );
+  //   await sendVerificationEmail(
+  //     verificationToken.email,
+  //     verificationToken.token,
+  //   );
+  //   return { success: "Email xác nhận đã được gửi đi!" }
+  // };
 
 
 
