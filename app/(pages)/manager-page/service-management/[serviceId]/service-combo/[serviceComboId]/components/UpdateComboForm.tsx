@@ -103,9 +103,9 @@ export default function UpdateComboForm({
             name="workOption"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Khổi lượng công việc</FormLabel>
+                <FormLabel>Diện tích làm việc</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nhập khổi lượng công việc" {...field} />
+                  <Input placeholder="Nhập diện tích làm việc" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -117,9 +117,9 @@ export default function UpdateComboForm({
             name="workDuration"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Mô tả chi tiết</FormLabel>
+                <FormLabel>Thời gian làm việc</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nhập mô tả chi tiết công việc" {...field} />
+                  <Input placeholder="Nhập thời gian làm việc" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -155,26 +155,6 @@ export default function UpdateComboForm({
                   <Input
                     type="number"
                     placeholder="Nhập giá dịch vụ"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <div className="grid grid-cols-2 w-full gap-12 mt-6">
-          <FormField
-            control={form.control}
-            name="duration"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Thời lượng làm việc</FormLabel>
-                <FormControl>
-                  <Input
-                    type="number"
-                    placeholder="Nhập thời lượng làm việc"
                     {...field}
                   />
                 </FormControl>

@@ -14,7 +14,7 @@ const listOverview = [
     img: icon_01,
     title: "Giải pháp thông minh, tiết kiệm thời gian",
     description:
-      "TCH - Kết nối bạn với đội ngũ dọn nhà chuyên nghiệp, tận tâm. Dọn dẹp mọi ngóc ngách, tiết kiệm thời gian cho bạn.",
+      "HomeShine - Kết nối bạn với đội ngũ dọn nhà chuyên nghiệp, tận tâm. Dọn dẹp mọi ngóc ngách, tiết kiệm thời gian cho bạn.",
   },
   {
     img: icon_02,
@@ -32,7 +32,7 @@ const listOverview = [
     img: icon_04,
     title: "An tâm, tin tưởng",
     description:
-      "TCH - Uy tín, kinh nghiệm lâu năm, luôn đặt lợi ích khách hàng lên hàng đầu.",
+      "HomeShine - Uy tín, kinh nghiệm lâu năm, luôn đặt lợi ích khách hàng lên hàng đầu.",
   },
 ];
 
@@ -60,19 +60,19 @@ const listStory = [
     img: img_01,
     title: "Nguyễn Mai Khanh - 53 tuổi",
     description:
-      "Trước đây, tôi chỉ làm những công việc lặt vặt trong khu phố. Từ khi gia nhập TCH, tôi đã được đào tạo chuyên nghiệp và có nhiều cơ hội làm việc hơn. Thu nhập ổn định và sự hỗ trợ từ đội ngũ TCH đã giúp tôi tự tin hơn trong công việc và cuộc sống.",
+      "Trước đây, tôi chỉ làm những công việc lặt vặt trong khu phố. Từ khi gia nhập HomeShine, tôi đã được đào tạo chuyên nghiệp và có nhiều cơ hội làm việc hơn. Thu nhập ổn định và sự hỗ trợ từ đội ngũ HomeShine đã giúp tôi tự tin hơn trong công việc và cuộc sống.",
   },
   {
     img: img_02,
     title: "Phạm Việt Hùng - 35 tuổi",
     description:
-      "Tôi từng làm việc ở nhiều nơi nhưng chưa bao giờ cảm thấy hài lòng như khi làm việc với TCH. Lịch trình linh hoạt, công việc rõ ràng và sự tôn trọng từ khách hàng là những điều mà tôi rất trân trọng. Nhờ TCH, tôi đã có thể dành nhiều thời gian hơn cho gia đình và cải thiện chất lượng cuộc sống.",
+      "Tôi từng làm việc ở nhiều nơi nhưng chưa bao giờ cảm thấy hài lòng như khi làm việc với HomeShine. Lịch trình linh hoạt, công việc rõ ràng và sự tôn trọng từ khách hàng là những điều mà tôi rất trân trọng. Nhờ HomeShine, tôi đã có thể dành nhiều thời gian hơn cho gia đình và cải thiện chất lượng cuộc sống.",
   },
   {
     img: img_03,
     title: "Trần Lan Chi - 27 tuổi",
     description:
-      "Trở thành một thành viên của TCH đã mở ra cho tôi một cơ hội phát triển bản thân mà tôi không ngờ tới. Tôi không chỉ học được nhiều kỹ năng mới mà còn nhận được nhiều phản hồi tích cực từ khách hàng. Mỗi lời khen ngợi là động lực để tôi tiếp tục cố gắng và hoàn thiện bản thân hơn nữa.",
+      "Trở thành một thành viên của HomeShine đã mở ra cho tôi một cơ hội phát triển bản thân mà tôi không ngờ tới. Tôi không chỉ học được nhiều kỹ năng mới mà còn nhận được nhiều phản hồi tích cực từ khách hàng. Mỗi lời khen ngợi là động lực để tôi tiếp tục cố gắng và hoàn thiện bản thân hơn nữa.",
   },
 ];
 
@@ -81,7 +81,7 @@ const listQA = [
     title:
       "Tôi có thể đặt lịch dịch vụ dọn dẹp ngoài khung giờ hành chính không?",
     description:
-      "Bạn có thể linh hoạt đặt lịch dịch vụ vệ sinh văn phòng ngoài giờ hành chính, TCH hoạt động từ 8:00 đến 22:00 mỗi ngày.",
+      "Bạn có thể linh hoạt đặt lịch dịch vụ vệ sinh văn phòng ngoài giờ hành chính, HomeShine hoạt động từ 8:00 đến 22:00 mỗi ngày.",
   },
   {
     title: "Nhân viên sẽ mang những dụng cụ gì khi đến dọn dẹp?",
@@ -94,7 +94,7 @@ const listQA = [
       "Bạn có thể đặt lịch trực tiếp trên trang web của chúng tôi. Chúng tôi sẽ check đơn hàng của bạn và điều phối người phù hợp nhất.",
   },
   {
-    title: "Giá dịch vụ vệ sinh của TCH được tính như thế nào",
+    title: "Giá dịch vụ vệ sinh của HomeShine được tính như thế nào",
     description:
       "Giá dịch vụ của chúng tôi được tính theo loại dịch vụ và số giờ làm việc thực tế được ghi nhận của nhân viên vệ sinh.",
   },

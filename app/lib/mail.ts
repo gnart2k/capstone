@@ -5,21 +5,20 @@ import { currencyFormater } from "./currencyFormat";
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-const transporter = nodemailer.createTransport({
-  host: "live.smtp.mailtrap.io",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.MAILER_CLIENT,
-    pass: process.env.APP_PASSWORD,
-  },
-});
+var transporter = nodemailer.createTransport({
+	host: "smtp.gmail.com",
+	port: 587,
+	auth: {
+	  user: "quylunbino@gmail.com",
+	  pass: "vwmdpupqlxwizszc"
+	}
+  });
 
 export const sendPasswordResetEmail = async (email: string, token: string) => {
   const resetLink = `${process.env.NEXT_PUBLIC_API_URL}/auth/new-password?token=${token}`;
   await transporter.sendMail({
     from: {
-      name: "TCH - THE CLEANING HOUSE SYSTEM",
+      name: "HomeShine",
       address: process.env.MAILER_USER,
     },
     to: email,
@@ -252,7 +251,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
   const confirmLink = `${process.env.NEXT_PUBLIC_API_URL}/auth/new-verification?token=${token}`;
   await transporter.sendMail({
     from: {
-      name: "TCH - THE CLEANING HOUSE SYSTEM",
+      name: "HomeShine",
       address: process.env.MAILER_USER,
     },
     to: email,
@@ -555,11 +554,11 @@ export const sendBookingNotificationEmail = async (
   const confirmLink = `${process.env.NEXT_PUBLIC_API_URL}/profile/booking-history`;
   await transporter.sendMail({
     from: {
-      name: "TCH - THE CLEANING HOUSE SYSTEM",
+      name: "HomeShine",
       address: process.env.MAILER_USER,
     },
     to: email,
-    subject: "Thông Báo Đặt Lịch Thành Công Dịch Vụ The Clean House",
+    subject: "Thông Báo Đặt Lịch Thành Công Dịch Vụ HomeShine",
 
     html: `<!DOCTYPE html>
 <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
@@ -672,7 +671,7 @@ export const sendBookingNotificationEmail = async (
 																<div style="color:#393d47;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;line-height:150%;text-align:left;mso-line-height-alt:24px;">
 																	<p style="margin: 0; word-break: break-word;"><span>Hi , ${userName}</span></p>
 																	<p style="margin: 0; word-break: break-word;">&nbsp;</p>
-																	<p style="margin: 0; word-break: break-word;"><span>Yêu cầu đặt lịch <strong>The Clean House</strong><em> </em><strong>- Dịch vụ dọn dẹp nhà cửa trực tuyến</strong> của bạn đã được xác nhận vào . Bạn vui lòng kiểm tra t</span><span>hông tin chi tiết dưới đây:</span></p>
+																	<p style="margin: 0; word-break: break-word;"><span>Yêu cầu đặt lịch <strong>HomeShine</strong><em> </em><strong>- Dịch vụ dọn dẹp nhà cửa trực tuyến</strong> của bạn đã được xác nhận vào . Bạn vui lòng kiểm tra t</span><span>hông tin chi tiết dưới đây:</span></p>
 																</div>
 															</td>
 														</tr>
@@ -758,7 +757,7 @@ export const sendBookingNotificationEmail = async (
 														<tr>
 															<td class="pad" style="padding-left:20px;padding-right:20px;padding-top:10px;">
 																<div style="color:#393d47;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;line-height:150%;text-align:left;mso-line-height-alt:24px;">
-																	<p style="margin: 0; word-break: break-word;"><span style="color: #ff5400;"><strong>TCH - The Clean House</strong></span></p>
+																	<p style="margin: 0; word-break: break-word;"><span style="color: #ff5400;"><strong>HomeShine - HomeShine</strong></span></p>
 																	<p style="margin: 0; word-break: break-word;"><strong>Địa chỉ: Khu Giáo dục và Đào tạo, Khu Công Nghệ Cao Hòa Lạc, Km29 Đại lộ Thăng Long, Thạch Hoà, Thạch Thất, Hà Nội</strong></p>
 																	<p style="margin: 0; word-break: break-word;"><strong>Hotline: 0925619241</strong></p>
 																</div>

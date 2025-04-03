@@ -20,7 +20,7 @@ export default function GeminiContainer({ }: Props) {
         <div className='absolute w-[170px] cursor-pointer shadow-lg flex p-2 bg-white  hover:shadow-gray-300 justify-center items-center bottom-[-60px] left-[320px] rounded-full ' onClick={() => setIsOpen(prev => !prev)}>
           <Image src={TCHIcon} alt='logo' className="w-12 h-12  rounded-full object-cover" />
           <div className='text-slate-600 font-semibold ml-2'>
-            Trợ lý TCH
+            Trợ lý HomeShine
           </div>
         </div>
       </div>

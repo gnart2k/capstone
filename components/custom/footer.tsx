@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="col-span-2">
             <div className="flex flex-col">
               <Image src={logo} alt="logo" height={logo.height} width={logo.width} />
-              <p className="text-gray-600 w-[300px]">Hệ thống chuyên cung cấp dịch vụ dọn dẹp nhà cửa trực tuyến TCH</p>
+              <p className="text-gray-600 w-[300px]">Hệ thống chuyên cung cấp dịch vụ dọn dẹp nhà cửa trực tuyến HomeShine</p>
             </div>
             <div className="flex gap-2 mt-[67px]">
               <div className="rounded-full w-7 h-7 flex justify-center items-center border-solid border-gray-300 border-[1px] cursor-pointer">
@@ -71,7 +71,7 @@ const Footer = () => {
       </div>
       <div className="container mx-auto mt-4">
         <div className="flex flex-col h-24 items-center justify-center gap-2  border-t border-[#E5E7EB]">
-          <h4 className="text-gray-500 text-sm">© Copyright 2024, All Rights Reserved by TCH</h4>
+          <h4 className="text-gray-500 text-sm">© Copyright 2024, All Rights Reserved by HomeShine</h4>
         </div>
       </div>
     </footer>

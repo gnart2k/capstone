@@ -53,11 +53,11 @@ export const signUpAction = async (values: z.infer<typeof RegisterSchema>) => {
   });
 
   try {
-    // const verificationToken = await generateVerificationToken(email);
-    // await sendVerificationEmail(
-    //   verificationToken.email,
-    //   verificationToken.token,
-    // )
+    const verificationToken = await generateVerificationToken(email);
+    await sendVerificationEmail(
+      verificationToken.email,
+      verificationToken.token,
+    )
     return { success: "Đăng ký tài khoản thành công. Email xác nhận đã được gửi đi!" }
   } catch (err) {
     await prismadb.user.delete({

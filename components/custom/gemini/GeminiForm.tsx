@@ -24,17 +24,8 @@ const App = () => {
 
   const endOfChatRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/service`);
-      const data = await response.json().then(e => e.join(', '));
-      setService(data);
-    }
-
-    fetchData();
-
-    const text =
-      `Hãy tự xưng mình là trợ lý TCH, 1 trợ lý ảo của The Clean House,
+  const initialPrompt =
+    `Hãy tự xưng mình là trợ lý HomeShine, 1 trợ lý ảo của HomeShine,
        1 phần mềm giúp đặt lịch dọn dẹp nhà của hãy trả lời câu hỏi của khách hàng,
        Khi khi được hỏi tch là gì thì hãy trả lời tôi là trợ lý của hệ thống cung cấp dịch vụ dọn dẹp nhà cửa, 
        Khi được hỏi có những dịch vụ gì, hãy trả lời chúng tôi cung cấp các dịch vụ như
@@ -46,21 +37,40 @@ const App = () => {
        luôn luôn hướng khách hàng tới việc đặt dịch vụ của hệ thống,
        `
 
-    if (chatHistory.length < 2) {
-      setChatHistory(oldChatHistory => [...oldChatHistory, {
-        role: session?.data?.user?.name ? session?.data?.user?.name : "Khách hàng",
-        parts: text,
-        image: session?.data?.user?.image,
-
-      },
-      {
-        role: "Trợ lý",
-        parts: "",
-        image: TCHIcon
-      }
-      ]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/service`);
+      const data = await response.json().then(e => e.join(', '));
+      setService(data);
     }
-  }, [service]);
+
+    fetchData();
+
+    const sendInitPrompt = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gemini`, {
+          method: 'POST',
+          body: JSON.stringify({
+            history: [{ role: "model", parts: initialPrompt }],
+            message: initialPrompt
+          }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+  
+        const data = await response.text();
+  
+        setChatHistory(oldChatHistory => [...oldChatHistory, {
+          role: session?.data?.user?.name ? session?.data?.user?.name : "Khách hàng",
+          parts: initialPrompt,
+          image: session?.data?.user?.image,
+        }]);
+      } catch (error) {
+        console.error("Error sending init prompt:", error);
+      }
+    };
+  
+    sendInitPrompt();
+  }, []);
 
   useEffect(() => {
     endOfChatRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -80,15 +90,28 @@ const App = () => {
       const options = {
         method: 'POST',
         body: JSON.stringify({
-          history: chatHistory.map(chat => ({ role: "user", parts: chat.parts })),
+          history: chatHistory.map(chat => ({
+            role: chat.role === "Trợ lý" ? "model" : "user",
+            parts: chat.parts,
+          })),
           message: curUserInput
         }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
       }
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gemini`, options);
+      //const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/gemini`, options);
+
+      const response = await fetch(`/api/gemini`, {
+        method: 'POST',
+        body: JSON.stringify({
+          history: chatHistory.map(chat => ({
+            role: chat.role === "Trợ lý" ? "model" : "user",
+            parts: chat.parts
+          })),
+          message: curUserInput
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      });
       const data = await response.text()
+      console.log(data)
       // const data = 'trang';
       const text = `|${curUserInput}|`;
 
@@ -112,11 +135,6 @@ const App = () => {
     }
   }
 
-  const clear = () => {
-    setValue("");
-    setChatHistory([]);
-  }
-
   const handleKeyDown = (e: any) => {
     if (e.key === 'Enter') {
       e.preventDefault(); // Prevent the form from being submitted
@@ -132,7 +150,7 @@ const App = () => {
           <div className='flex bg-white w-full p-4 items-center rounded-t-2xl '>
             <Image src={TCHIcon} alt='logo' className="w-12 h-12 mr-1 rounded-full object-cover" />
             <div className=''>
-              <p className='text-slate-700 font-semibold'>Trợ lý TCH</p>
+              <p className='text-slate-700 font-semibold'>Trợ lý HomeShine</p>
               <div className='flex items-center'>
                 <span className="relative flex h-3 w-3 mr-1">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -147,7 +165,7 @@ const App = () => {
           {chatHistory.map((chatItem, _index) =>
             <div key={_index} className='w-full '>
               {
-                (_index % 2 !== 0 && _index > 1) && (
+                (_index % 2 == 0 && _index > 1) && (
                   <div className='flex w-full justify-start'>
                     <Image src={TCHIcon} alt='logo' className="w-8 h-8 mr-1 mt-8 rounded-full object-cover" />
                     <div className=''>
@@ -161,7 +179,7 @@ const App = () => {
                   </div>
                 )
               }
-              {(_index % 2 === 0 && _index > 0) && (
+              {(_index % 2 != 0 && _index > 0) && (
                 <div className='flex w-full justify-end'>
                   <div className=''>
                     <p className='text-gray-500 text-[10px] text-right'>

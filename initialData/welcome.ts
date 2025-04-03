@@ -9,27 +9,27 @@ const listFeedback = [
   {
     userImg: avtDemo,
     userName: "Thanh Hương",
-    content: "Dịch vụ dọn nhà TCH rất phù hợp với những người trẻ bận rộn như mình. Mình rất an tâm khi sử dụng dịch vụ của TCH."
+    content: "Dịch vụ dọn nhà HomeShine rất phù hợp với những người trẻ bận rộn như mình. Mình rất an tâm khi sử dụng dịch vụ của HomeShine."
   },
   {
     userImg: avtDemo,
     userName: "Phạm Hùng",
-    content: "Mình thường xuyên phải đi công tác nên ít khi có thời gian dọn dẹp nhà cửa. TCH đã giúp mình có nhiều thời gian rảnh rỗi hơn mà vẫn có thể giữ nhà cửa sạch sẽ, ngăn nắp."
+    content: "Mình thường xuyên phải đi công tác nên ít khi có thời gian dọn dẹp nhà cửa. HomeShine đã giúp mình có nhiều thời gian rảnh rỗi hơn mà vẫn có thể giữ nhà cửa sạch sẽ, ngăn nắp."
   },
   {
     userImg: avtDemo,
     userName: "Trần Thành",
-    content: "Điều mình thích nhất ở TCH chính là giá cả phải chăng mà chất lượng dịch vụ luôn được đảm bảo. Mình thường sử dụng gói “Tổng vệ sinh” vào cuối tuần ."
+    content: "Điều mình thích nhất ở HomeShine chính là giá cả phải chăng mà chất lượng dịch vụ luôn được đảm bảo. Mình thường sử dụng gói “Tổng vệ sinh” vào cuối tuần ."
   },
   {
     userImg: avtDemo,
     userName: "Hoàng Dương",
-    content: "Nhận viên tư vấn nhiệt tình, giá cả hợp lý, dọn dẹp sạch sẽ và không mất nhiều thời gian. Nhờ có TCH mà gia đình tôi không cần lo lắng về việc dọn nhà nữa."
+    content: "Nhận viên tư vấn nhiệt tình, giá cả hợp lý, dọn dẹp sạch sẽ và không mất nhiều thời gian. Nhờ có HomeShine mà gia đình tôi không cần lo lắng về việc dọn nhà nữa."
   },
   {
     userImg: avtDemo,
     userName: "Nam Cao",
-    content: "Dịch vụ dọn nhà TCH rất phù hợp với những người trẻ bận rộn như mình. Mình rất an tâm khi sử dụng dịch vụ của TCH."
+    content: "Dịch vụ dọn nhà HomeShine rất phù hợp với những người trẻ bận rộn như mình. Mình rất an tâm khi sử dụng dịch vụ của HomeShine."
   },
 
 ];

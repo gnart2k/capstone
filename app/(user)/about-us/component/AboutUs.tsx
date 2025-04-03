@@ -33,7 +33,7 @@ const AboutUs = () => {
               Về chúng tôi
             </Label>
             <Label className="text-base font-lightly">
-              TCH tự hào sở hữu đội ngũ nhân viên tận tâm và chuyên nghiệp, luôn
+              HomeShine tự hào sở hữu đội ngũ nhân viên tận tâm và chuyên nghiệp, luôn
               nỗ lực mang đến không gian sống và làm việc sạch sẽ, thoải mái cho
               khách hàng. Chúng tôi cam kết cung cấp dịch vụ vệ sinh và dọn dẹp
               chất lượng cao, đáp ứng mọi nhu cầu của khách hàng.
@@ -84,7 +84,7 @@ const AboutUs = () => {
               <Label>Về chúng tôi</Label>
             </div>
             <Label className="font-bold text-2xl">
-              Tổng quan <strong className="text-[#FB7C3C]">Về TCH</strong>
+              Tổng quan <strong className="text-[#FB7C3C]">Về HomeShine</strong>
             </Label>
             <div className="flex flex-col gap-4">
               {listOverview.map((value, index) => {
@@ -111,11 +111,11 @@ const AboutUs = () => {
             <div className="flex gap-1 items-center">
               <Image src={icon_label02} alt="icon_label02" />
               <Label className="text-sm text-white font-extralight">
-                Lợi Ích từ TCH
+                Lợi Ích từ HomeShine
               </Label>
             </div>
             <Label className="text-white md:text-3xl text-xl">
-              Các lợi ích Khách hàng sẽ được nhận khi sử dụng TCH
+              Các lợi ích Khách hàng sẽ được nhận khi sử dụng HomeShine
             </Label>
             <Button variant="link" onClick={() => router.push("/service")} className="text-white border w-[200px]">
               Tất Cả Các Dịch Vụ
@@ -149,9 +149,9 @@ const AboutUs = () => {
             Những mẩu chuyện &quot; thành công &quot; được chia sẻ
           </Label>
           <Label className="text-center text-base font-light w-[60%]">
-            Một số trải nghiệm thực tế được các thành viên của TCH bày tỏ. Mỗi
+            Một số trải nghiệm thực tế được các thành viên của HomeShine bày tỏ. Mỗi
             câu chuyện là một minh chứng cho sự cam kết của chúng tôi trong việc
-            hỗ trợ và khích lệ mỗi thành viên của đại gia đình TCH đạt được
+            hỗ trợ và khích lệ mỗi thành viên của đại gia đình HomeShine đạt được
             thành công và phát triển trong sự nghiệp của mình.
           </Label>
         </div>

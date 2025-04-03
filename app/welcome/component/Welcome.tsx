@@ -48,7 +48,7 @@ const Welcome = () => {
         <div className="flex flex-col gap-3 min-w-[330px]">
           <Label className="font-bold lg:text-4xl md:text-3xl text-xl">Dịch Vụ Dọn Dẹp</Label>
           <Label className="font-black text-[#FF6A28] lg:text-8xl md:text-6xl text-3xl">
-            The Clean House
+            HomeShine
           </Label>
           <Label className="text-xl mt-4">
             Với đội ngũ nhân viên tận tâm và giàu kinh nghiệm, chúng tôi cam kết
