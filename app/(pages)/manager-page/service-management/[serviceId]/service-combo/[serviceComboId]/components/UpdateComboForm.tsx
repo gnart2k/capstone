@@ -96,7 +96,9 @@ export default function UpdateComboForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="">
+      <form onSubmit={form.handleSubmit(onSubmit, (errors) => {
+        console.log("Errors:", errors);
+      })} className="">
         <div className="grid grid-cols-2 w-full gap-12 mt-6">
           <FormField
             control={form.control}
@@ -155,6 +157,26 @@ export default function UpdateComboForm({
                   <Input
                     type="number"
                     placeholder="Nhập giá dịch vụ"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="grid grid-cols-2 w-full gap-12 mt-6">
+          <FormField
+            control={form.control}
+            name="duration"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Thời lượng làm việc</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    placeholder="Nhập thời lượng làm việc"
                     {...field}
                   />
                 </FormControl>

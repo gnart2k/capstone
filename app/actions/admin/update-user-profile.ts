@@ -130,6 +130,7 @@ export const createUserProfileAction = async (
       dob: dob,
       image: defaultAvatar,
       password: hashedPassword,
+      emailVerified: new Date(),
       role: {
         connect: {
           id: roleUser.id
