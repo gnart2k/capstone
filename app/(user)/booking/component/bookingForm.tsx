@@ -458,12 +458,12 @@ export default function BookingForm({
 
   return (
     <div className="flex justify-center dark:bg-booking-background-dark mb-20">
-      <div className="2xl:block hidden">
+      {/* <div className="2xl:block hidden">
         <div className="absolute dark:border-gray-600 w-40 h-40 bg-transparent shadow-md backdrop-blur-sm animate-bounce duration-5000 top-80 left-[400px]  border border-gray-100 rounded-lg"></div>
         <div className="absolute dark:border-gray-600 w-40 h-40 bg-transparent shadow-lg backdrop-blur-sm animate-bounce duration-6000 top-60 right-[350px] z-10  border border-gray-100 rounded-lg"></div>
 
         <div className="absolute dark:border-gray-600 w-40 h-40 bg-transparent shadow-lg backdrop-blur-sm animate-bounce duration-7000 top-[500px] left-[800px]  border border-gray-100 rounded-lg"></div>
-      </div>
+      </div> */}
       <div className="flex flex-col bg-white/10 justify-between mt-10 rounded-2xl dark:border-slate-700 shadow-2xl border border-white backdrop-blur-sm  lg:w-6/12 pb-8">
         <div className="flex flex-col items-center">
           <h2 className="text-center text-3xl font-semibold mt-10">

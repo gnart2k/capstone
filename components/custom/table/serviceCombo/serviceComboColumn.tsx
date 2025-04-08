@@ -64,7 +64,7 @@ export const ServiceComboColumn: ColumnDef<ServiceComboColumnProps>[] = [
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Diện tích làm việc
+            Khối lượng công việc
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         </div>

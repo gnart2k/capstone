@@ -105,9 +105,9 @@ export default function UpdateComboForm({
             name="workOption"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Diện tích làm việc</FormLabel>
+                <FormLabel>Khối lượng côngviệc</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nhập diện tích làm việc" {...field} />
+                  <Input placeholder="Nhập khối lượng công việc" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

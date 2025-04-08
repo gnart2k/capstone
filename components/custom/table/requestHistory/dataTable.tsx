@@ -91,7 +91,7 @@ export function DataTable<TData, TValue>({
   const labelArray = {
     id: "Mã ID",
     date: "Ngày đặt",
-    workoption: "Diện tích làm việc",
+    workoption: "Khối lượng công việc",
     workduration: "Thời gian làm việc",
     staffnumber: "Số lượng nhân viên",
     price: "Giá",

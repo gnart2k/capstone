@@ -78,7 +78,7 @@ export default async function ListRequestDetail({
                     currentRequest.data.serviceOnRequest.status === "canceled" && "text-red-700"
                   )}
                 >
-                  {getStatusText("pending")}
+                  {getStatusText(currentRequest.data.serviceOnRequest.status)}
                 </p>
               </div>
             </div>

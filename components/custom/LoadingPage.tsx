@@ -6,7 +6,7 @@ import Image from 'next/image'
 type Props = {}
 
 export default function LoadingPage({ }: Props) {
-  const text = "THE  CLEAN  HOUSE"
+  const text = "HOME SHINE"
   const delayDuration: string[] = [];
   let i = 0
   text.split("").map((char, index) => {

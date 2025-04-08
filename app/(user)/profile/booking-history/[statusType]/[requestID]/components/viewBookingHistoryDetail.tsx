@@ -279,7 +279,7 @@ export default function ViewBookingHistoryDetail({
             </div>
             <div className="border-b pb-2">
               <Label className="text-[#FF6A28] text-sm">
-                Diện tích làm việc
+                Khối lượng công việc
               </Label>
               <Label>{props.descriptionServiceComBo}</Label>
             </div>

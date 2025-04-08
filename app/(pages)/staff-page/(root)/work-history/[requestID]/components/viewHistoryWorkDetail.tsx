@@ -93,7 +93,7 @@ export default function ViewHistoryWorkDetail({ props }: { props: RequestSchema 
                 <Label>{props.serviceCombo.title}</Label>
               </div>
               <div className="border-b pb-2">
-                <Label className="text-[#FF6A28] text-sm">Diện tích làm việc</Label>
+                <Label className="text-[#FF6A28] text-sm">Khối lượng công việc</Label>
                 <Label>{props.serviceCombo.description}</Label>
               </div>
               <div>

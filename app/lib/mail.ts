@@ -758,8 +758,8 @@ export const sendBookingNotificationEmail = async (
 															<td class="pad" style="padding-left:20px;padding-right:20px;padding-top:10px;">
 																<div style="color:#393d47;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:16px;line-height:150%;text-align:left;mso-line-height-alt:24px;">
 																	<p style="margin: 0; word-break: break-word;"><span style="color: #ff5400;"><strong>HomeShine - HomeShine</strong></span></p>
-																	<p style="margin: 0; word-break: break-word;"><strong>Địa chỉ: Khu Giáo dục và Đào tạo, Khu Công Nghệ Cao Hòa Lạc, Km29 Đại lộ Thăng Long, Thạch Hoà, Thạch Thất, Hà Nội</strong></p>
-																	<p style="margin: 0; word-break: break-word;"><strong>Hotline: 0925619241</strong></p>
+																	<p style="margin: 0; word-break: break-word;"><strong>Địa chỉ: 12 P.Chùa Bộc, Quang Trung, Đống Đa, Hà Nộ</strong></p>
+																	<p style="margin: 0; word-break: break-word;"><strong>Hotline: 0963736190</strong></p>
 																</div>
 															</td>
 														</tr>

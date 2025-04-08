@@ -101,7 +101,7 @@ function ServiceInfo({ props }: { props: ServiceInfoProps }) {
 
             <div className="flex flex-col border-b border-b-gray-300 pb-2">
               <span className="text-crusta font-semibold">
-                Diện tích làm việc
+                Khối lượng công việc
               </span>
               <span>{props.workOption}</span>
             </div>

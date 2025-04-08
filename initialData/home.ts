@@ -68,7 +68,7 @@ const listBenefit = [
     img: serviceIcon,
     title: "Đa dạng dịch vụ",
     content:
-      "Với 9 dịch vụ tiện ích, bTaskee sẵn sàng hỗ trợ mọi nhu cầu việc nhà của bạn.",
+      "Với những dịch vụ tiện ích, HomeShine sẵn sàng hỗ trợ mọi nhu cầu việc nhà của bạn.",
   },
   {
     img: protectIcon,
