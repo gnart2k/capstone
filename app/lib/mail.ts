@@ -145,9 +145,6 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
 													<table class="image_block block-2" width="100%" border="0" cellpadding="20" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 														<tr>
 															<td class="pad">
-																<div class="alignment" align="right" style="line-height:10px">
-																	<div class="fullWidth" style="max-width: 333px;"><img src="https://c84ff7f11d.imgdist.com/pub/bfra/gy3w3461/9jp/1m7/6z3/Group%201000003622%20%282%29.png" style="display: block; height: auto; border: 0; width: 100%;" width="333" alt="Forgot your password?" title="Forgot your password?" height="auto"></div>
-																</div>
 															</td>
 														</tr>
 													</table>
@@ -359,13 +356,6 @@ export const sendVerificationEmail = async (email: string, token: string) => {
 											<tr>
 												<td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
 													<table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-														<tr>
-															<td class="pad" style="width:100%;">
-																<div class="alignment" align="center" style="line-height:10px">
-																	<div style="max-width: NaNpx;"><img src="https://c84ff7f11d.imgdist.com/pub/bfra/gy3w3461/xqm/287/1ik/Group%201000003622%203%281%29.png" style="display: block; height: auto; border: 0; width: 50%;" width="null" height="auto"></div>
-																</div>
-															</td>
-														</tr>
 													</table>
 													<table class="divider_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 														<tr>

@@ -7,7 +7,7 @@ import UserNotification from "./user-notification";
 import Image from "next/image";
 import { ThemeToggle } from "../ui/theme-toggle";
 import { Button } from "../ui/button";
-import logo from "@/public/assets/images/logo.svg fill.png"
+import logo from "@/public/assets/images/logo_large.png"
 import { usePathname, useRouter } from "next/navigation";
 import LogoSmall from "@/public/logo.svg"
 import { Session } from "next-auth";

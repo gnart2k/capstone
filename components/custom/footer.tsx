@@ -1,5 +1,5 @@
 import Image from "next/image"
-import logo from "@/public/assets/images/logo.svg fill.png"
+import logo from "@/public/assets/images/logo_large.png"
 import face from "@/public/assets/footer/face.png"
 import intagram from "@/public/assets/footer/intagram.png"
 import twiter from "@/public/assets/footer/twiter.png"

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState, useTransition } from "react";
 import Image from "next/image";
 import loginImg from "@/public/assets/authentication/images/loginImg.png";
-import logoImg from "@/public/assets/images/logo.svg fill.png";
+import logoImg from "@/public/assets/images/logo_large.png";
 import { Button } from "@/components/ui/button";
 import googleImage from "@/public/assets/images/googleImg.png";
 import { CustomSquare } from "@/components/custom/Shape";

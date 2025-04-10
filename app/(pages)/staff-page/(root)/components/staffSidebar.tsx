@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import logo from "@/public/assets/images/logo.svg fill.png"
+import logo from "@/public/assets/images/logo_large.png"
 
 export default function StaffSidebar() {
   const pathname = usePathname();

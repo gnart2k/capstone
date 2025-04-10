@@ -51,7 +51,7 @@ export default function UpdateComboForm({
   });
 
   useEffect(() => {
-    if (data) {
+    if (data && serviceComboId != "add") {
       form.reset({
         id: data.id,
         workOption: data.description,
