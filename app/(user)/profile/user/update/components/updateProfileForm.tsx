@@ -12,7 +12,7 @@ import { FormSuccess } from "@/components/custom/form-success";
 import { UpdateProfileSchema } from "@/schema";
 import { updateProfileAction } from "@/app/actions/profile/update-profile";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Calendar, CalendarComponent } from "@/components/ui/calendar";
+import { CalendarComponent } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";

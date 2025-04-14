@@ -1,6 +1,5 @@
 import { viewProfileAction } from "@/app/actions/profile/view-profile";
 import UpdateProfileForm from "./components/updateProfileForm";
-import { GetDefaultAddress } from "@/app/actions/users/GetDefaultAddress";
 import { auth } from "@/auth";
 
 export default async function Profile() {
@@ -12,7 +11,7 @@ export default async function Profile() {
       <UpdateProfileForm
         id={session?.user?.id}
         phone={data?.user.phone}
-        dob={data.user?.dob}
+        dob={data.user?.dob ? new Date(data.user.dob.setDate(data.user.dob.getDate() - 1)) : undefined}
         addresses={data.user?.addresses}
         gender={data?.user?.gender}
         name={data?.user?.name}

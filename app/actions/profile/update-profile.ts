@@ -61,7 +61,7 @@ export const updateProfileAction = async (
       data: {
         name: name,
         phone: phone,
-        dob: dob,
+        dob: dob ? new Date(dob.setDate(dob.getDate() + 1)) : undefined,
         gender: gender,
       },
       where: {

@@ -71,7 +71,7 @@ const Footer = () => {
       </div>
       <div className="container mx-auto mt-4">
         <div className="flex flex-col h-24 items-center justify-center gap-2  border-t border-[#E5E7EB]">
-          <h4 className="text-gray-500 text-sm">© Copyright 2024, All Rights Reserved by HomeShine</h4>
+          <h4 className="text-gray-500 text-sm">© Copyright 2025, All Rights Reserved by HomeShine</h4>
         </div>
       </div>
     </footer>
