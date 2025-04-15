@@ -72,6 +72,7 @@ const UpdateProfileForm = (props: UpdateProfileFormProps) => {
     setSuccess("")
 
     startTransition(() => {
+      console.log(values)
       updateProfileAction(values).then((data) => {
         if (data?.error) {
           toast.error(data?.error);

@@ -11,7 +11,7 @@ export default async function Profile() {
       <UpdateProfileForm
         id={session?.user?.id}
         phone={data?.user.phone}
-        dob={data.user?.dob ? new Date(data.user.dob.setDate(data.user.dob.getDate() - 1)) : undefined}
+        dob={data.user?.dob ? data.user.dob : undefined}
         addresses={data.user?.addresses}
         gender={data?.user?.gender}
         name={data?.user?.name}
