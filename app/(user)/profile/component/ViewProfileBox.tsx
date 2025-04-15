@@ -22,10 +22,15 @@ type ViewProfileBoxProps = {
     specificAddress: string
     isDefault: boolean
   } | undefined
-
 }
 export default function ViewProfileBox(data: ViewProfileBoxProps) {
   const router = useRouter();
+
+  const formattedDate = new Date(data.dob).toLocaleDateString('vi-VN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
 
   return (
     <div className="flex mt-10 w-full">
@@ -38,7 +43,7 @@ export default function ViewProfileBox(data: ViewProfileBoxProps) {
         </div>
         <div className="mt-3 ml-6">
           <h3 className="font-semibold text-lg mb-2">Ngày tháng năm sinh</h3>
-          <h4>{data.dob}</h4>
+          <h4>{formattedDate}</h4>
           <hr></hr>
         </div>
         <div className="mt-3 ml-6">

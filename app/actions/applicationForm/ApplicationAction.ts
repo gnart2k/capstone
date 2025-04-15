@@ -22,6 +22,23 @@ export async function applicationAction(
   }
 
   try {
+        // Kiểm tra đơn tương tự đã gửi gần đây (trong 3 phút)
+    const existingReport = await prismadb.applicationReport.findFirst({
+      where: {
+        userId: currentUser?.user?.id,
+        reportType: validatedFields.data.applicationType,
+        reportContent: validatedFields.data.reason,
+        createdAt: {
+          gte: new Date(Date.now() - 3 * 60 * 1000), // trong 3 phút gần đây
+        },
+      },
+    });
+
+    // if (existingReport) {
+    //   return {
+    //     error: "Vui lòng đợi xử lý hoặc thử lại sau."
+    //   };
+    // }
     //save attachedFile
     const createdReport = await prismadb.applicationReport.create({
       data: {
@@ -56,7 +73,7 @@ export async function applicationAction(
 export async function getAllReportOfUser() {
   const isPermitted = await isStaff();
   if (!isPermitted) {
-    return { error: "Bạn không có quyền thực hiện chức năng này" };``
+    return { error: "Bạn không có quyền thực hiện chức năng này" };
   }
   const currentUser = await auth();
   const reports = await prismadb.applicationReport.findMany({
