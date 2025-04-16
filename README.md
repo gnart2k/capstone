@@ -1,4 +1,4 @@
-# This is a capstone project of group G4 FPT University.
+# This is a capstone project of group G4 K24CNTTA.
 ## Getting Started
 
 Clone this project 
@@ -55,5 +55,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - contain zustand store,
 #### naming convention
 - folder in app use for url, use kebab-case ex: (user-name), other: use camelCase or PascalCase 
-
-HOPE EVERYONE READ AND ACT FOLLOW ABOVE RULE - Tráng-sama -

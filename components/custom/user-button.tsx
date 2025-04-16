@@ -1,7 +1,7 @@
 "use client";
 
 import { Session } from "next-auth";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   DropdownMenu,
@@ -13,11 +13,17 @@ import { History, LogOut, UserRound } from "lucide-react";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { useSession } from "next-auth/react";
+import { useUserStore } from "@/app/store/useUserStore";
 
 
 const UserButton = ({ user }: { user: Session['user'] }) => {
   const session = useSession();
-
+  const userInfo = useUserStore(state => state.user)
+  const initUser = useUserStore(state => state.initializeUser)
+  useEffect(()=>{
+    initUser(session?.data?.user?.id)
+    console.log(userInfo)
+  },[session])
   const routes = session?.data?.user?.role == "user" ?
     [
       {
@@ -64,10 +70,10 @@ const UserButton = ({ user }: { user: Session['user'] }) => {
         <DropdownMenuTrigger>
           <div className="flex p-2 rounded-md">
             <Avatar className="mr-3">
-              <AvatarImage src={user?.image} className="object-cover" />
+              <AvatarImage src={userInfo?.image ? userInfo?.image : user?.image} className="object-cover" />
             </Avatar>
             <div className="hidden md:block">
-              <p className="text-start">{user?.name}</p>
+              <p className="text-start">{userInfo?.name ? userInfo?.name:  user?.name}</p>
               <p className="text-gray-400 text-sm">{user?.email}</p>
             </div>
           </div>

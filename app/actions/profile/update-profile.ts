@@ -116,7 +116,7 @@ export const updateProfileAction = async (
     });
 
     // If update is successful, Prisma doesn't throw. No need to check 'user'.
-    return { success: "Cập nhật thông tin thành công" };
+    return { data: user, success: "Cập nhật thông tin thành công" };
 
   } catch (error) {
     console.error("Failed to update profile in database:", error); // Log the actual DB error

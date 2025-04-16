@@ -6,6 +6,7 @@ import { Camera } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useSession } from "next-auth/react";
 import { UpdateAvatar } from "@/app/actions/profile/update-avatar";
+import { useUserStore } from "@/app/store/useUserStore";
 
 
 type ProfileZoneProps = {
@@ -21,7 +22,8 @@ export default function ProfileZone(props: ProfileZoneProps) {
   const session = useSession();
   const [currentAvatar, setCurrentAvatar] = useState(props.avatar)
   const [isLoading, setLoading] = useState(false)
-
+  const setUser = useUserStore(state => state.setUser)
+  const user = useUserStore(state => state.user)
   return (
     <div>
       <div className="flex flex-col items-center ">
@@ -42,11 +44,12 @@ export default function ProfileZone(props: ProfileZoneProps) {
               console.log("Files: ", res);
               toast.success("Upload thành công");
               res.length > 0 && setImageUrl(res[0]?.url);
+              setUser({ ...user, image: res[0]?.url })
 
               const isSuccess = await UpdateAvatar({ url: res[0]?.url });
 
               if (isSuccess) {
-                setCurrentAvatar(res[0]?.url)
+                setCurrentAvatar(imageUrl)
                 toast.success("Ảnh đại diện đã được cập nhật thành công")
               } else {
                 toast.error("Cập nhật ảnh đại diện thất bại, vui lòng thử lại")
@@ -65,7 +68,7 @@ export default function ProfileZone(props: ProfileZoneProps) {
           }
         </div>
 
-        <p className="text-xl font-semibold mt-2">{props.name}</p>
+        <p className="text-xl font-semibold mt-2">{user?.name ?? props.name}</p>
         <p className="text-gray-500 text-sm mt-2">{props.email}</p>
         <div className="mt-8 bg-gray-500">
         </div>

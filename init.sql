@@ -9,10 +9,10 @@ INSERT INTO Role (id, roleName) VALUES
 
 -- Insert users
 INSERT INTO User (id, name, email, emailVerified, image, password, dob, phone, gender, credibility, roleId, status) VALUES
-  ('user_1', 'Alice Smith', 'alice@example.com', '2024-06-01 10:00:00', 'https://example.com/alice.jpg', 'passwordHash1', '1985-08-12', '1234567890', 'female', 'good', 'role_1', true),
-  ('user_2', 'Bob Johnson', 'bob@example.com', '2024-06-02 11:00:00', 'https://example.com/bob.jpg', 'passwordHash2', '1990-05-15', '0987654321', 'male', 'excellent', 'role_2', true),
-  ('user_3', 'Charlie Davis', 'charlie@example.com', '2024-06-03 12:00:00', 'https://example.com/charlie.jpg', 'passwordHash3', '1988-11-30', '1112223333', 'male', 'average', 'role_3', true),
-  ('user_4', 'Diana Evans', 'diana@example.com', '2024-06-04 13:00:00', 'https://example.com/diana.jpg', 'passwordHash4', '1995-03-22', '4445556666', 'female', 'good', 'role_4', true),
+  ('user_1', 'Alice Smith', 'alice@example.com', '2025-06-01 10:00:00', 'https://example.com/alice.jpg', 'passwordHash1', '1985-08-12', '1234567890', 'female', 'good', 'role_1', true),
+  ('user_2', 'Bob Johnson', 'bob@example.com', '2025-06-02 11:00:00', 'https://example.com/bob.jpg', 'passwordHash2', '1990-05-15', '0987654321', 'male', 'excellent', 'role_2', true),
+  ('user_3', 'Charlie Davis', 'charlie@example.com', '2025-06-03 12:00:00', 'https://example.com/charlie.jpg', 'passwordHash3', '1988-11-30', '1112223333', 'male', 'average', 'role_3', true),
+  ('user_4', 'Diana Evans', 'diana@example.com', '2025-06-04 13:00:00', 'https://example.com/diana.jpg', 'passwordHash4', '1995-03-22', '4445556666', 'female', 'good', 'role_4', true),
   ('user_5', 'Eve Martinez', 'eve@example.com', NULL, 'https://example.com/eve.jpg', 'passwordHash5', '1992-09-18', '5554443333', 'female', 'poor', 'role_5', true);
 
 -- Insert accounts
@@ -105,11 +105,11 @@ INSERT INTO MapAddressOnUser (mapId, userId) VALUES
 
 -- Insert requests
 INSERT INTO Request (id, serviceId, serviceComboId, date, time, price, staffNum, note, mapAddressId, addressId, type, paymentLink, phone, transactionId, userId, status) VALUES
-  (1, 'service_1', 'serviceCombo_1', '2024-06-20', '09:00', 300.00, 2, 'Please focus on the living room.', 'map_1', 'address_1', 'normal', 'https://payment.example.com/pay1', '1234567890', 'tx_1', 'user_1', 'pending'),
-  (2, 'service_2', 'serviceCombo_2', '2024-06-21', '10:00', 200.00, 1, 'Please take care of the front garden.', 'map_2', 'address_2', 'normal', 'https://payment.example.com/pay2', '0987654321', 'tx_2', 'user_2', 'confirmed'),
-  (3, 'service_3', 'serviceCombo_3', '2024-06-22', '11:00', 250.00, 1, 'Check all bathroom plumbing.', 'map_3', 'address_3', 'normal', 'https://payment.example.com/pay3', '1112223333', 'tx_3', 'user_3', 'completed'),
-  (4, 'service_4', 'serviceCombo_4', '2024-06-23', '12:00', 400.00, 2, 'Inspect the entire electrical system.', 'map_4', 'address_4', 'normal', 'https://payment.example.com/pay4', '4445556666', 'tx_4', 'user_4', 'pending'),
-  (5, 'service_5', 'serviceCombo_5', '2024-06-24', '13:00', 220.00, 1, 'Focus on pest prevention in the kitchen.', 'map_5', 'address_5', 'normal', 'https://payment.example.com/pay5', '5554443333', 'tx_5', 'user_5', 'pending');
+  (1, 'service_1', 'serviceCombo_1', '2025-06-20', '09:00', 300.00, 2, 'Please focus on the living room.', 'map_1', 'address_1', 'normal', 'https://payment.example.com/pay1', '1234567890', 'tx_1', 'user_1', 'pending'),
+  (2, 'service_2', 'serviceCombo_2', '2025-06-21', '10:00', 200.00, 1, 'Please take care of the front garden.', 'map_2', 'address_2', 'normal', 'https://payment.example.com/pay2', '0987654321', 'tx_2', 'user_2', 'confirmed'),
+  (3, 'service_3', 'serviceCombo_3', '2025-06-22', '11:00', 250.00, 1, 'Check all bathroom plumbing.', 'map_3', 'address_3', 'normal', 'https://payment.example.com/pay3', '1112223333', 'tx_3', 'user_3', 'completed'),
+  (4, 'service_4', 'serviceCombo_4', '2025-06-23', '12:00', 400.00, 2, 'Inspect the entire electrical system.', 'map_4', 'address_4', 'normal', 'https://payment.example.com/pay4', '4445556666', 'tx_4', 'user_4', 'pending'),
+  (5, 'service_5', 'serviceCombo_5', '2025-06-24', '13:00', 220.00, 1, 'Focus on pest prevention in the kitchen.', 'map_5', 'address_5', 'normal', 'https://payment.example.com/pay5', '5554443333', 'tx_5', 'user_5', 'pending');
 
 -- Insert request on staff
 INSERT INTO RequestOnStaff (id, requestId, staffId) VALUES
@@ -137,25 +137,25 @@ INSERT INTO Capabilities (id, userId, serviceId) VALUES
 
 -- Insert schedules
 INSERT INTO Schedule (id, userId, taskName, startTime, endTime, date, requestId) VALUES
-  ('schedule_1', 'user_2', 'House Cleaning', '09:00', '17:00', '2024-06-20', 1),
-  ('schedule_2', 'user_3', 'Gardening', '10:00', '18:00', '2024-06-21', 2),
-  ('schedule_3', 'user_4', 'Plumbing', '11:00', '19:00', '2024-06-22', 3),
-  ('schedule_4', 'user_5', 'Electrical Repairs', '12:00', '20:00', '2024-06-23', 4),
-  ('schedule_5', 'user_2', 'Pest Control', '13:00', '21:00', '2024-06-24', 5);
+  ('schedule_1', 'user_2', 'House Cleaning', '09:00', '17:00', '2025-06-20', 1),
+  ('schedule_2', 'user_3', 'Gardening', '10:00', '18:00', '2025-06-21', 2),
+  ('schedule_3', 'user_4', 'Plumbing', '11:00', '19:00', '2025-06-22', 3),
+  ('schedule_4', 'user_5', 'Electrical Repairs', '12:00', '20:00', '2025-06-23', 4),
+  ('schedule_5', 'user_2', 'Pest Control', '13:00', '21:00', '2025-06-24', 5);
 
 -- Insert verification tokens
 INSERT INTO VerificationToken (id, email, token, expires) VALUES
-  ('vtoken_1', 'alice@example.com', 'token_123', '2024-07-01 00:00:00'),
-  ('vtoken_2', 'bob@example.com', 'token_456', '2024-07-02 00:00:00'),
-  ('vtoken_3', 'charlie@example.com', 'token_789', '2024-07-03 00:00:00'),
-  ('vtoken_4', 'diana@example.com', 'token_101112', '2024-07-04 00:00:00'),
-  ('vtoken_5', 'eve@example.com', 'token_131415', '2024-07-05 00:00:00');
+  ('vtoken_1', 'alice@example.com', 'token_123', '2025-07-01 00:00:00'),
+  ('vtoken_2', 'bob@example.com', 'token_456', '2025-07-02 00:00:00'),
+  ('vtoken_3', 'charlie@example.com', 'token_789', '2025-07-03 00:00:00'),
+  ('vtoken_4', 'diana@example.com', 'token_101112', '2025-07-04 00:00:00'),
+  ('vtoken_5', 'eve@example.com', 'token_131415', '2025-07-05 00:00:00');
 
 -- Insert password reset tokens
 INSERT INTO PasswordResetToken (id, email, token, expires) VALUES
-  ('prtoken_1', 'alice@example.com', 'reset_123', '2024-07-01 00:00:00'),
-  ('prtoken_2', 'bob@example.com', 'reset_456', '2024-07-02 00:00:00'),
-  ('prtoken_3', 'charlie@example.com', 'reset_789', '2024-07-03 00:00:00'),
-  ('prtoken_4', 'diana@example.com', 'reset_101112', '2024-07-04 00:00:00'),
-  ('prtoken_5', 'eve@example.com', 'reset_131415', '2024-07-05 00:00:00');
+  ('prtoken_1', 'alice@example.com', 'reset_123', '2025-07-01 00:00:00'),
+  ('prtoken_2', 'bob@example.com', 'reset_456', '2025-07-02 00:00:00'),
+  ('prtoken_3', 'charlie@example.com', 'reset_789', '2025-07-03 00:00:00'),
+  ('prtoken_4', 'diana@example.com', 'reset_101112', '2025-07-04 00:00:00'),
+  ('prtoken_5', 'eve@example.com', 'reset_131415', '2025-07-05 00:00:00');
 

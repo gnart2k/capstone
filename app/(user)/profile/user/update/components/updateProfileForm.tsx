@@ -21,6 +21,7 @@ import { z } from "zod";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import CreateAddressDialog from "./createAddress";
 import AddressForm from "@/components/custom/AddressForm";
+import { useUserStore } from "@/app/store/useUserStore";
 
 type UpdateProfileFormProps = {
   id: string,
@@ -54,6 +55,8 @@ const UpdateProfileForm = (props: UpdateProfileFormProps) => {
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
   const router = useRouter();
+  const userState = useUserStore(state => state.user);
+  const setUserState = useUserStore(state => state.setUser)
 
 
   const form = useForm<z.infer<typeof UpdateProfileSchema>>({
@@ -72,12 +75,13 @@ const UpdateProfileForm = (props: UpdateProfileFormProps) => {
     setSuccess("")
 
     startTransition(() => {
-      console.log(values)
       updateProfileAction(values).then((data) => {
         if (data?.error) {
           toast.error(data?.error);
           setError(data?.error);
         } else {
+          console.log(data)
+          setUserState({id: data?.data?.id, name: data?.data?.name, image: data?.data?.image })
           toast.success(data?.success);
           setSuccess(data?.success);
         }

@@ -107,7 +107,7 @@ export default function ViewBookingHistoryDetail({
       }
       if (staffIds) {
         for (const staffId of staffIds) {
-          await createNotification(staffId, "cancel_booking", "Dịch vụ đã bị hủy bới người đặt");
+          await createNotification(staffId, "cancel_booking", "Dịch vụ đã bị hủy bởi người đặt");
           socket.emit("notifyUser", staffId, "Lịch làm việc của bạn đã bị hủy!");
         }
       }

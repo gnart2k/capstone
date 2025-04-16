@@ -206,6 +206,7 @@ export default function BookingForm({
       firstUpdate.current = false;
       return;
     }
+    
 
     const fetchWard = async () => {
       const districtId = getCurrentDistrictId();

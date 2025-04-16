@@ -107,7 +107,7 @@ function ServiceInfo({ props }: { props: ServiceInfoProps }) {
             </div>
 
             <div className="flex flex-col border-b border-b-gray-300 pb-2">
-              <span className="text-crusta font-semibold">Ngày đặt</span>
+              <span className="text-crusta font-semibold">Lịch làm việc</span>
               <EditWrapper
                 defaultValue={{ value: dateString, type: "text" }}
                 triggerFunction={handleChangeDate}
